@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "730367530521",
+    "project_id": "tumult-4e10c",
+    "storage_bucket": "tumult-4e10c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730367530521:android:76c874253577e5b00ffc88",
+        "android_client_info": {
+          "package_name": "me.tangobee.tumult"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730367530521-09v83qjrg4felp2ug859ea8qsdm61uqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2_uUTxJLVG_f5vvCEwOS0w5YYf7l4oqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730367530521-09v83qjrg4felp2ug859ea8qsdm61uqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

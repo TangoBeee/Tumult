@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tumult</string>
+    <string name="resendCodeTime">Resend Code ( %d )</string>
+    <string name="resendCode">Resend Code</string>
+</resources>
