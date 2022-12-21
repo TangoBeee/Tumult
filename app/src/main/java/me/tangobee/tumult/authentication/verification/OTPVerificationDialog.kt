@@ -291,7 +291,7 @@ class OTPVerificationDialog(context : Context,
                     if(!isLoggedIn) {
                         auth.currentUser?.let { firebaseStoreHelper(it.uid) }
 
-                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username))
+                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", mob).putExtra("uid", auth.currentUser?.uid))
                         dismiss()
                         activity.finish()
                     }

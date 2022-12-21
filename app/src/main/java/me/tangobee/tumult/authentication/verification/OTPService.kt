@@ -98,7 +98,7 @@ class OTPService(private val phoneNumber : String,
                     if(!isLoggedIn) {
                         auth.currentUser?.let { firebaseStoreHelper(it.uid) }
 
-                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username))
+                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", phoneNumber).putExtra("uid", auth.currentUser?.uid))
                         activity.finish()
                     }
                     else {
