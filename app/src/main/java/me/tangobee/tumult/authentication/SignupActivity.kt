@@ -146,6 +146,7 @@ class SignupActivity : AppCompatActivity(), OnClickListener {
                                 startActivity(Intent(this@SignupActivity, LoginActivity::class.java))
                                 finish()
                                 done = false
+                                dialog.dismiss()
                             }
 
                             if(done) {
@@ -161,11 +162,11 @@ class SignupActivity : AppCompatActivity(), OnClickListener {
                                         ),
                                         false
                                     )
-                                otpService.otpService()}
+                                otpService.otpService()
+                            }
+                            dialog.dismiss()
                         }
                     }
-
-                    dialog.dismiss()
 
                 } else {
                     Toast.makeText(this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show()

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import me.tangobee.tumult.MainActivity
 import me.tangobee.tumult.R
@@ -30,10 +31,13 @@ class HomeActivity : AppCompatActivity() {
 
         signout.setOnClickListener {
             dialog.show()
-            auth.signOut()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            dialog.dismiss()
+            AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                    dialog.dismiss()
+                }
         }
 
     }

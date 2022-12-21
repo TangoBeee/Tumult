@@ -64,6 +64,8 @@ class OTPVerificationDialog(context : Context,
 
     private lateinit var auth: FirebaseAuth
 
+    private lateinit var dialog: Dialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
@@ -84,6 +86,10 @@ class OTPVerificationDialog(context : Context,
         verifyOTP = findViewById(R.id.verifyOTP)
 
         auth = FirebaseAuth.getInstance()
+
+        dialog = Dialog(activity)
+        dialog.setContentView(R.layout.dialog_wait)
+        dialog.setCancelable(false)
 
         //keyboard open on which otp box by default ->
         showKeyboard(otpET1)
@@ -247,6 +253,7 @@ class OTPVerificationDialog(context : Context,
                     Toast.makeText(context, "Invalid OTP", Toast.LENGTH_SHORT).show()
                 }
                 else {
+                    dialog.show()
                     val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
                         otp, getOTP
                     )
@@ -254,6 +261,7 @@ class OTPVerificationDialog(context : Context,
                     signInWithPhoneAuthCredential(credential)
 
                     verifyOTP.setBackgroundResource(R.drawable.otp_btn_black_red)
+                    dialog.dismiss()
                     dismiss()
                 }
             }
@@ -284,10 +292,13 @@ class OTPVerificationDialog(context : Context,
                         auth.currentUser?.let { firebaseStoreHelper(it.uid) }
 
                         activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username))
+                        dismiss()
                         activity.finish()
                     }
                     else {
+                        Log.d("mainactivity", "testing")
                         activity.startActivity(Intent(context, HomeActivity::class.java))
+                        dismiss()
                         activity.finish()
                     }
 

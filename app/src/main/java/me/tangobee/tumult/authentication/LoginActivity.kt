@@ -118,15 +118,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 finish()
                             }
 
+                            dialog.dismiss()
                         } else {
                             Toast.makeText(this@LoginActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                             finish()
+                            dialog.dismiss()
                         }
                     }
-
-
-                    dialog.dismiss()
                 } else {
                     Toast.makeText(this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show()
                 }
