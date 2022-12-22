@@ -98,11 +98,11 @@ class OTPService(private val phoneNumber : String,
                     if(!isLoggedIn) {
                         auth.currentUser?.let { firebaseStoreHelper(it.uid) }
 
-                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", phoneNumber).putExtra("uid", auth.currentUser?.uid))
+                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", phoneNumber).putExtra("uid", auth.currentUser?.uid).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         activity.finish()
                     }
                     else {
-                        activity.startActivity(Intent(activity, HomeActivity::class.java))
+                        activity.startActivity(Intent(activity, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         activity.finish()
                     }
 

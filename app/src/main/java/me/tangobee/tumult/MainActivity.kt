@@ -35,12 +35,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         installSplashScreen()
         setContentView(R.layout.activity_main)
 
+
+        //checking if user is already signed in or not
+        auth = FirebaseAuth.getInstance()
+        if(auth.currentUser?.uid != null) {
+            startActivity(Intent(this@MainActivity, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+            finish()
+        }
+
         //Finding views by their IDs
         howItWorksBTN = findViewById(R.id.howItWorks)
         loginBTN = findViewById(R.id.loginbtn)
         signupBTN = findViewById(R.id.signupbtn)
 
-        auth = FirebaseAuth.getInstance()
 
 
         //Buttons on click listener
@@ -68,22 +75,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.loginbtn -> {
                 val loginActivityIntent = Intent(this@MainActivity, LoginActivity::class.java)
+//                loginActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(loginActivityIntent)
+//                finish()
             }
 
             R.id.signupbtn -> {
                 val signupActivityIntent = Intent(this@MainActivity, SignupActivity::class.java)
+//                signupActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(signupActivityIntent)
+//                finish()
             }
-        }
-    }
-
-
-    override fun onStart() {
-        super.onStart()
-        if(auth.currentUser != null) {
-            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
-            finish()
         }
     }
 

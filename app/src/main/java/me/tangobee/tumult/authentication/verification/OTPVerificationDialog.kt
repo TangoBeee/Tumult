@@ -102,33 +102,33 @@ class OTPVerificationDialog(context : Context,
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                    if(s?.isNotEmpty() == true) {
-                        when(selectedOTPBox) {
-                            0 -> {
-                                selectedOTPBox = 1
-                                showKeyboard(otpET2)
-                            }
-                            1 -> {
-                                selectedOTPBox = 2
-                                showKeyboard(otpET3)
-                            }
-                            2 -> {
-                                selectedOTPBox = 3
-                                showKeyboard(otpET4)
-                            }
-                            3 -> {
-                                selectedOTPBox = 4
-                                showKeyboard(otpET5)
-                            }
-                            4 -> {
-                                selectedOTPBox = 5
-                                showKeyboard(otpET6)
-                            }
-
-                            else -> {
-                                verifyOTP.setBackgroundResource(R.drawable.otp_btn_black_red)
-                            }
+                if(s?.isNotEmpty() == true) {
+                    when(selectedOTPBox) {
+                        0 -> {
+                            selectedOTPBox = 1
+                            showKeyboard(otpET2)
                         }
+                        1 -> {
+                            selectedOTPBox = 2
+                            showKeyboard(otpET3)
+                        }
+                        2 -> {
+                            selectedOTPBox = 3
+                            showKeyboard(otpET4)
+                        }
+                        3 -> {
+                            selectedOTPBox = 4
+                            showKeyboard(otpET5)
+                        }
+                        4 -> {
+                            selectedOTPBox = 5
+                            showKeyboard(otpET6)
+                        }
+
+                        else -> {
+                            verifyOTP.setBackgroundResource(R.drawable.otp_btn_black_red)
+                        }
+                    }
                 }
             }
 
@@ -291,13 +291,13 @@ class OTPVerificationDialog(context : Context,
                     if(!isLoggedIn) {
                         auth.currentUser?.let { firebaseStoreHelper(it.uid) }
 
-                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", mob).putExtra("uid", auth.currentUser?.uid))
+                        activity.startActivity(Intent(activity, UploadProfilePicActivity::class.java).putExtra("username", username).putExtra("phoneNumber", mob).putExtra("uid", auth.currentUser?.uid).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         dismiss()
                         activity.finish()
                     }
                     else {
                         Log.d("mainactivity", "testing")
-                        activity.startActivity(Intent(context, HomeActivity::class.java))
+                        activity.startActivity(Intent(context, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         dismiss()
                         activity.finish()
                     }

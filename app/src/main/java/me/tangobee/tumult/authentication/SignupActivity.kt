@@ -174,5 +174,4 @@ class SignupActivity : AppCompatActivity(), OnClickListener {
             }
         }
     }
-
 }

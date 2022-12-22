@@ -121,10 +121,10 @@ class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
                     val imageUrl = it.toString()
 
                     db.collection("Users")
-                            .document(uid)
-                            .update(mapOf(
-                                "image" to imageUrl
-                            ))
+                        .document(uid)
+                        .update(mapOf(
+                            "image" to imageUrl
+                        ))
                 }
             }
 
@@ -132,4 +132,6 @@ class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this@UploadProfilePicActivity, e.message.toString(), Toast.LENGTH_SHORT).show()
             }
     }
+
+
 }
