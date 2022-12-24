@@ -26,7 +26,7 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
 import me.tangobee.tumult.R
-import me.tangobee.tumult.application.HomeActivity
+import me.tangobee.tumult.application.ApplicationActivity
 import me.tangobee.tumult.authentication.UploadProfilePicActivity
 import me.tangobee.tumult.firebase.FireStorePush
 import me.tangobee.tumult.model.MobileNumber
@@ -297,7 +297,7 @@ class OTPVerificationDialog(context : Context,
                     }
                     else {
                         Log.d("mainactivity", "testing")
-                        activity.startActivity(Intent(context, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+                        activity.startActivity(Intent(context, ApplicationActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         dismiss()
                         activity.finish()
                     }

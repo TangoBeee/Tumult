@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/miChat"
+        android:title="Chat"
+        android:icon="@drawable/ic_chat"/>
+
+    <item android:id="@+id/miCall"
+        android:title="Calling"
+        android:icon="@drawable/ic_call"/>
+
+    <item android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item android:id="@+id/miGallery"
+        android:title="Gallery"
+        android:icon="@drawable/ic_gallery"/>
+
+    <item android:id="@+id/miProfile"
+        android:title="Profile"
+        android:icon="@drawable/ic_user"/>
+</menu>

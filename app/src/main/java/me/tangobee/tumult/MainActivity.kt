@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.auth.FirebaseAuth
-import me.tangobee.tumult.application.HomeActivity
+import me.tangobee.tumult.application.ApplicationActivity
 import me.tangobee.tumult.authentication.LoginActivity
 import me.tangobee.tumult.authentication.SignupActivity
 import me.tangobee.tumult.functions.TransparentWidnow
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //checking if user is already signed in or not
         auth = FirebaseAuth.getInstance()
         if(auth.currentUser?.uid != null) {
-            startActivity(Intent(this@MainActivity, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+            startActivity(Intent(this@MainActivity, ApplicationActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             finish()
         }
 

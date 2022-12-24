@@ -9,7 +9,7 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import me.tangobee.tumult.application.HomeActivity
+import me.tangobee.tumult.application.ApplicationActivity
 import me.tangobee.tumult.authentication.UploadProfilePicActivity
 import me.tangobee.tumult.firebase.FireStorePush
 import me.tangobee.tumult.model.MobileNumber
@@ -102,7 +102,7 @@ class OTPService(private val phoneNumber : String,
                         activity.finish()
                     }
                     else {
-                        activity.startActivity(Intent(activity, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+                        activity.startActivity(Intent(activity, ApplicationActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                         activity.finish()
                     }
 

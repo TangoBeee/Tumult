@@ -8,7 +8,7 @@ data class UserProfile(
     @get:PropertyName("user_name")
                        @set:PropertyName("user_name")
     var userName: String="",
-    var image:String="",
+    var image:String="https://i.ibb.co/2MKcTxt/Untitled-removebg.png",
     var mobile: MobileNumber?=null)
 
 data class MobileNumber(

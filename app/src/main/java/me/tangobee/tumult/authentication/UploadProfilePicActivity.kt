@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import me.tangobee.tumult.R
-import me.tangobee.tumult.application.HomeActivity
+import me.tangobee.tumult.application.ApplicationActivity
 import me.tangobee.tumult.functions.TransparentWidnow
 
 class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
@@ -74,7 +74,7 @@ class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
 
         when(v?.id) {
             R.id.skip -> {
-                startActivity(Intent(this@UploadProfilePicActivity, HomeActivity::class.java))
+                startActivity(Intent(this@UploadProfilePicActivity, ApplicationActivity::class.java))
                 finish()
             }
 
@@ -89,7 +89,7 @@ class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
 
                     uploadImageToFirebase()
 
-                    startActivity(Intent(this@UploadProfilePicActivity, HomeActivity::class.java))
+                    startActivity(Intent(this@UploadProfilePicActivity, ApplicationActivity::class.java))
                     finish()
                 }
                 else {
