@@ -125,7 +125,7 @@ class OTPService(private val phoneNumber : String,
         val user = UserProfile(
             uID,
             username,
-            "",
+            "https://i.ibb.co/2MKcTxt/Untitled-removebg.png",
             mobileNumberObject
         )
 

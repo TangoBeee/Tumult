@@ -368,7 +368,7 @@ class OTPVerificationDialog(context : Context,
         val user = UserProfile(
             uID,
             username,
-            "",
+            "https://i.ibb.co/2MKcTxt/Untitled-removebg.png",
             mobileNumberObject
         )
 

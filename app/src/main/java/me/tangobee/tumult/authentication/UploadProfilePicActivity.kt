@@ -1,5 +1,6 @@
 package me.tangobee.tumult.authentication
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
@@ -46,6 +47,14 @@ class UploadProfilePicActivity : AppCompatActivity(), View.OnClickListener {
         val username = "Welcome " + intent.getStringExtra("username")
         phoneNumber = intent.getStringExtra("phoneNumber").toString()
         uid = intent.getStringExtra("uid").toString()
+
+        //<-------------------------Saving data into sharedPref --------------------------------->
+        val sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        val sharedPrefEditor = sharedPref.edit()
+        sharedPrefEditor.putString("phoneno", phoneNumber)
+        sharedPrefEditor.putString("username", username)
+        sharedPrefEditor.putString("uid", uid)
+        sharedPrefEditor.apply()
 
         //finding views by their ID ->
         userName = findViewById(R.id.welcUsername)
